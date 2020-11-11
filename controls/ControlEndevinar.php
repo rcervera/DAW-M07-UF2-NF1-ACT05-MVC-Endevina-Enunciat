@@ -2,7 +2,7 @@
 include_once 'helpers/request.php';
 // és obligatori posar aquest include per a que l'objecte
 // d'aquest tipus es recuperi correctament de la sessió on es troba emmagatzemat
-include_once 'models/GuestNumber.php';
+include_once 'models/GuessNumber.php';
 
 class ControlEndevinar {
 

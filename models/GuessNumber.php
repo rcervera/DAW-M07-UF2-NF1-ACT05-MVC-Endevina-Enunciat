@@ -1,25 +1,22 @@
 <?php
  
-class GuestNumber {
-		
+class GuessNumber {
+    
+    protected $aleatori; // Número secret que s'ha d'endevinar
 	protected $estat; // estat del joc: 0-en curs, 1-guanyes, 2-perds
-	protected $missatge; // missatge ha mostrar a l'usuari
-	protected $maxim; // Número màxim que es pot generar
+	protected $missatge; // missatge a mostrar a l'usuari
+	protected $maxim; // Número màxim que es pot generar aleatòriament
 	protected $intents; // Intents d'endevinar que queden per perdre
 	protected $maxintents; // Número màxim d'intents per endevinar número
-	protected $aleatori; // Número secret que s'ha d'endevinar
 	
-	// private $showAnteriors; // True si volem mostrar el números d'intents anteriors incorrectes
-	// private $anteriors; // Es guarden els números incorrectes d'intents anteriors
-
+	
 	// En el constructor li passarem quin és el número més gran que es pot generar i
 	// quants intents tindrà el jugador com a màxim
 	function __construct($maxim,$maxintents) {	 
 	     
 	     $this->maxim = $maxim;
 	     $this->maxintents = $maxintents;
-	     // Per defecte no es mostren els números anteriors a l'usuari
-	     //$this->showAnteriors = true; 
+	     
 	     // Posem partida en curs
 	     $this->estat=0;
 	     // Inicialitzem la resta d'atributs: joc nou
@@ -28,8 +25,7 @@ class GuestNumber {
 	
 	// Inicialitzar un joc nou
 	public function inicialitzacio() {		
-		 // Posem en blanc l'array que guarda els números entrats fins ara		   
-	     //$this->anteriors = array(); 
+	     
 	     // Posem el comptador d'intents al màxim, cada errada descomptarà 1 intent
 	     $this->intents = $this->maxintents;
 	     // Generem el número que s'ha d'encertar

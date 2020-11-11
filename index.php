@@ -1,5 +1,5 @@
 <?php
-include_once 'models/GuestNumber.php';
+include_once 'models/GuessNumber.php';
 
 // En mode implementació tindrem activats la visualització dels errors
 error_reporting(E_ALL);
@@ -13,14 +13,19 @@ ini_set('display_errors', '1');
 // global de l'aplicació: creació objectes comums, obrir sessió, ...
 
 // Obrim sessió
+// configurem paràmetres de la sessió, com nom de la cookie, temps de vida i path on és vàlida
 session_name("ENDEVINAID");
-session_start();
+
+$params = array('cookie_lifetime'=>time()+3600,
+                'cookie_path'=>dirname($_SERVER['PHP_SELF']));
+                
+session_start($params);
 
 // Si encara no existeix un objecte per jugar desat a la sessió 
 if(!isset($_SESSION['jocEndevinar']))
 {     
     // creem un nou joc
-    $jocEndevinar = new GuestNumber(100,10);
+    $jocEndevinar = new GuessNumber(100,10);
     // i el deso a la sessió per tenir-lo disponible en les properes crides
     // per tots els controladors
        
